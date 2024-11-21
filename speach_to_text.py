@@ -4,7 +4,7 @@ import pyttsx3
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 from langchain_core.prompts import PromptTemplate
-from langchain_core.prompts import ChatPromptTemplate
+
 from langchain_ollama.llms import OllamaLLM
 from langchain.schema import StrOutputParser
 
@@ -13,6 +13,7 @@ r = sr.Recognizer()
 class yei_speak:
     def __init__(self):
         self.engine = pyttsx3.init()
+        self.memory = ConversationBufferMemory(memory_key='history')
         self.main()
     def make_call(self) -> str:
         print('listening')
@@ -32,43 +33,33 @@ class yei_speak:
         except sr.UnknownValueError as ue:
             print ('TF')
             
-    def brain(self,memory):
+    def brain(self):
         user_input = self.make_call()
         print(user_input)
         
-        memory += [(
-                "human",
-                f"{user_input}",
-            )
-            ]
         
+        template = """You are a conversion bot.
         
-        template = ChatPromptTemplate.from_messages(
-            [
-                ("""You are a conversion bot.
-                 
-        {question}"""),
-                ("placeholder", "{messages}"),
-            ]
-        )        
+        {history}
+        {question}"""
+        
+        prompt = PromptTemplate(
+            input=['history','question'],
+            template = template
+        )
+        
 
         model = OllamaLLM(model="llama3.2")
         
-        chain = template |  model | StrOutputParser()
-        
-        result = chain.invoke(
-            {"question": user_input,
-             "messages" : memory}
+        llm_chain = LLMChain(
+            llm = model,
+            prompt = prompt,
+            verbose = True,
+            memory = self.memory
         )
-        
-        memory += [(
-                "assistant",
-                f"{result}",
-            )
-            ]
-        
+
+        result = llm_chain.predict(question=user_input)
         self.respond(result)
-        return(memory)
 
     def respond(self, text:str) -> None:
         print(text)
@@ -98,8 +89,6 @@ class yei_speak:
         self.engine.say(text)
         self.engine.runAndWait()
     def main(self): 
-        memory = []
         while True:
-            memory = self.brain(memory)
-            print(memory)
+            self.brain()
 conv_start = yei_speak()
