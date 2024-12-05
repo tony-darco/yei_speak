@@ -1,4 +1,4 @@
-name: yei_speak
+name: yei_dash
 channels:
   - defaults
   - conda-forge

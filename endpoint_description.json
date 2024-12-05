@@ -1,0 +1,2602 @@
+[
+    {
+        "path": "/administered/identities/me",
+        "method": "GET",
+        "description": "Returns the identity of the current user."
+    },
+    {
+        "path": "/administered/identities/me/api/keys",
+        "method": "GET",
+        "description": "List the non-sensitive metadata associated with the API keys that belong to the user"
+    },
+    {
+        "path": "/administered/identities/me/api/keys/generate",
+        "method": "POST",
+        "description": "Generates an API key for an identity. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed."
+    },
+    {
+        "path": "/administered/identities/me/api/keys/{suffix}/revoke",
+        "method": "POST",
+        "description": "Revokes an identity's API key, using the last four characters of the key. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed."
+    },
+    {
+        "path": "/administered/licensing/subscription/entitlements",
+        "method": "GET",
+        "description": "Retrieve the list of purchasable entitlements"
+    },
+    {
+        "path": "/administered/licensing/subscription/subscriptions",
+        "method": "GET",
+        "description": "List available subscriptions"
+    },
+    {
+        "path": "/administered/licensing/subscription/subscriptions/claim",
+        "method": "POST",
+        "description": "Claim a subscription into an organization."
+    },
+    {
+        "path": "/administered/licensing/subscription/subscriptions/claimKey/validate",
+        "method": "POST",
+        "description": "Find a subscription by claim key. Returns 400 if the key has already been claimed."
+    },
+    {
+        "path": "/administered/licensing/subscription/subscriptions/compliance/statuses",
+        "method": "GET",
+        "description": "Get compliance status for requested subscriptions"
+    },
+    {
+        "path": "/administered/licensing/subscription/subscriptions/{subscriptionId}/bind",
+        "method": "POST",
+        "description": "Bind networks to a subscription"
+    },
+    {
+        "path": "/devices/{serial}",
+        "method": "PUT",
+        "description": "Update the attributes of a device"
+    },
+    {
+        "path": "/devices/{serial}/appliance/dhcp/subnets",
+        "method": "GET",
+        "description": "Return the DHCP subnet information for an appliance"
+    },
+    {
+        "path": "/devices/{serial}/appliance/performance",
+        "method": "GET",
+        "description": "Return the performance score for a single MX. Only primary MX devices supported. If no data is available, a 204 error code is returned."
+    },
+    {
+        "path": "/devices/{serial}/appliance/prefixes/delegated",
+        "method": "GET",
+        "description": "Return current delegated IPv6 prefixes on an appliance."
+    },
+    {
+        "path": "/devices/{serial}/appliance/prefixes/delegated/vlanAssignments",
+        "method": "GET",
+        "description": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance."
+    },
+    {
+        "path": "/devices/{serial}/appliance/radio/settings",
+        "method": "PUT",
+        "description": "Update the radio settings of an appliance"
+    },
+    {
+        "path": "/devices/{serial}/appliance/uplinks/settings",
+        "method": "PUT",
+        "description": "Update the uplink settings for an MX appliance"
+    },
+    {
+        "path": "/devices/{serial}/appliance/vmx/authenticationToken",
+        "method": "POST",
+        "description": "Generate a new vMX authentication token"
+    },
+    {
+        "path": "/devices/{serial}/blinkLeds",
+        "method": "POST",
+        "description": "Blink the LEDs on a device.  This endpoint is deprecrated in favor of \"/devices/{serial}/liveTools/leds/blink\"."
+    },
+    {
+        "path": "/devices/{serial}/camera/analytics/live",
+        "method": "GET",
+        "description": "Returns live state from camera analytics zones"
+    },
+    {
+        "path": "/devices/{serial}/camera/analytics/overview",
+        "method": "GET",
+        "description": "Returns an overview of aggregate analytics data for a timespan"
+    },
+    {
+        "path": "/devices/{serial}/camera/analytics/recent",
+        "method": "GET",
+        "description": "Returns most recent record for analytics zones"
+    },
+    {
+        "path": "/devices/{serial}/camera/analytics/zones",
+        "method": "GET",
+        "description": "Returns all configured analytic zones for this camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/analytics/zones/{zoneId}/history",
+        "method": "GET",
+        "description": "Return historical records for analytic zones"
+    },
+    {
+        "path": "/devices/{serial}/camera/customAnalytics",
+        "method": "PUT",
+        "description": "Update custom analytics settings for a camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/generateSnapshot",
+        "method": "POST",
+        "description": "Generate a snapshot of what the camera sees at the specified time and return a link to that image."
+    },
+    {
+        "path": "/devices/{serial}/camera/qualityAndRetention",
+        "method": "PUT",
+        "description": "Update quality and retention settings for the given camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/sense",
+        "method": "PUT",
+        "description": "Update sense settings for the given camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/sense/objectDetectionModels",
+        "method": "GET",
+        "description": "Returns the MV Sense object detection model list for the given camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/video/settings",
+        "method": "PUT",
+        "description": "Update video settings for the given camera"
+    },
+    {
+        "path": "/devices/{serial}/camera/videoLink",
+        "method": "GET",
+        "description": "Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp."
+    },
+    {
+        "path": "/devices/{serial}/camera/wirelessProfiles",
+        "method": "PUT",
+        "description": "Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once."
+    },
+    {
+        "path": "/devices/{serial}/cellular/sims",
+        "method": "PUT",
+        "description": "Updates the SIM and APN configurations for a cellular device."
+    },
+    {
+        "path": "/devices/{serial}/cellularGateway/lan",
+        "method": "PUT",
+        "description": "Update the LAN Settings for a single MG."
+    },
+    {
+        "path": "/devices/{serial}/cellularGateway/portForwardingRules",
+        "method": "PUT",
+        "description": "Updates the port forwarding rules for a single MG."
+    },
+    {
+        "path": "/devices/{serial}/clients",
+        "method": "GET",
+        "description": "List the clients of a device, up to a maximum of a month ago. The usage of each client is returned in kilobytes. If the device is a switch, the switchport is returned; otherwise the switchport field is null."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/arpTable",
+        "method": "POST",
+        "description": "Enqueue a job to perform a ARP table request for the device. This endpoint currently supports switches. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/arpTable/{arpTableId}",
+        "method": "GET",
+        "description": "Return an ARP table live tool job."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/cableTest",
+        "method": "POST",
+        "description": "Enqueue a job to perform a cable test for the device on the specified ports. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/cableTest/{id}",
+        "method": "GET",
+        "description": "Return a cable test live tool job."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/leds/blink",
+        "method": "POST",
+        "description": "Enqueue a job to blink LEDs on a device. This endpoint has a rate limit of one request every 10 seconds."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/leds/blink/{ledsBlinkId}",
+        "method": "GET",
+        "description": "Return a blink LEDs job"
+    },
+    {
+        "path": "/devices/{serial}/liveTools/ping",
+        "method": "POST",
+        "description": "Enqueue a job to ping a target host from the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/ping/{id}",
+        "method": "GET",
+        "description": "Return a ping job. Latency unit in response is in milliseconds. Size is in bytes."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/pingDevice",
+        "method": "POST",
+        "description": "Enqueue a job to check connectivity status to the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/pingDevice/{id}",
+        "method": "GET",
+        "description": "Return a ping device job. Latency unit in response is in milliseconds. Size is in bytes."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/throughputTest",
+        "method": "POST",
+        "description": "Enqueue a job to test a device throughput, the test will run for 10 secs to test throughput. This endpoint has a rate limit of one request every five seconds per device."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/throughputTest/{throughputTestId}",
+        "method": "GET",
+        "description": "Return a throughput test job"
+    },
+    {
+        "path": "/devices/{serial}/liveTools/wakeOnLan",
+        "method": "POST",
+        "description": "Enqueue a job to send a Wake-on-LAN packet from the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+    },
+    {
+        "path": "/devices/{serial}/liveTools/wakeOnLan/{wakeOnLanId}",
+        "method": "GET",
+        "description": "Return a Wake-on-LAN job"
+    },
+    {
+        "path": "/devices/{serial}/lldpCdp",
+        "method": "GET",
+        "description": "List LLDP and CDP information for a device"
+    },
+    {
+        "path": "/devices/{serial}/lossAndLatencyHistory",
+        "method": "GET",
+        "description": "Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for MX, MG and Z devices."
+    },
+    {
+        "path": "/devices/{serial}/managementInterface",
+        "method": "PUT",
+        "description": "Update the management interface settings for a device"
+    },
+    {
+        "path": "/devices/{serial}/reboot",
+        "method": "POST",
+        "description": "Reboot a device. This endpoint has a sustained rate limit of one request every 60 seconds."
+    },
+    {
+        "path": "/devices/{serial}/sensor/commands",
+        "method": "POST",
+        "description": "Sends a command to a sensor"
+    },
+    {
+        "path": "/devices/{serial}/sensor/commands/{commandId}",
+        "method": "GET",
+        "description": "Returns information about the command's execution, including the status"
+    },
+    {
+        "path": "/devices/{serial}/sensor/relationships",
+        "method": "PUT",
+        "description": "Assign one or more sensor roles to a given sensor or camera device."
+    },
+    {
+        "path": "/devices/{serial}/switch/ports",
+        "method": "GET",
+        "description": "List the switch ports for a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/ports/cycle",
+        "method": "POST",
+        "description": "Cycle a set of switch ports"
+    },
+    {
+        "path": "/devices/{serial}/switch/ports/statuses",
+        "method": "GET",
+        "description": "Return the status for all the ports of a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/ports/statuses/packets",
+        "method": "GET",
+        "description": "Return the packet counters for all the ports of a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/ports/{portId}",
+        "method": "PUT",
+        "description": "Update a switch port"
+    },
+    {
+        "path": "/devices/{serial}/switch/routing/interfaces",
+        "method": "POST",
+        "description": "Create a layer 3 interface for a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/routing/interfaces/{interfaceId}",
+        "method": "DELETE",
+        "description": "Delete a layer 3 interface from the switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp",
+        "method": "PUT",
+        "description": "Update a layer 3 interface DHCP configuration for a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/routing/staticRoutes",
+        "method": "POST",
+        "description": "Create a layer 3 static route for a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}",
+        "method": "DELETE",
+        "description": "Delete a layer 3 static route for a switch"
+    },
+    {
+        "path": "/devices/{serial}/switch/warmSpare",
+        "method": "PUT",
+        "description": "Update warm spare configuration for a switch. The spare will use the same L3 configuration as the primary. Note that this will irreversibly destroy any existing L3 configuration on the spare."
+    },
+    {
+        "path": "/devices/{serial}/wireless/alternateManagementInterface/ipv6",
+        "method": "PUT",
+        "description": "Update alternate management interface IPv6 address"
+    },
+    {
+        "path": "/devices/{serial}/wireless/bluetooth/settings",
+        "method": "PUT",
+        "description": "Update the bluetooth settings for a wireless device"
+    },
+    {
+        "path": "/devices/{serial}/wireless/connectionStats",
+        "method": "GET",
+        "description": "Aggregated connectivity info for a given AP on this network"
+    },
+    {
+        "path": "/devices/{serial}/wireless/electronicShelfLabel",
+        "method": "PUT",
+        "description": "Update the ESL settings of a device"
+    },
+    {
+        "path": "/devices/{serial}/wireless/latencyStats",
+        "method": "GET",
+        "description": "Aggregated latency info for a given AP on this network"
+    },
+    {
+        "path": "/devices/{serial}/wireless/radio/settings",
+        "method": "PUT",
+        "description": "Update the radio settings of a device"
+    },
+    {
+        "path": "/devices/{serial}/wireless/status",
+        "method": "GET",
+        "description": "Return the SSID statuses of an access point"
+    },
+    {
+        "path": "/networks/{networkId}",
+        "method": "DELETE",
+        "description": "Delete a network"
+    },
+    {
+        "path": "/networks/{networkId}/alerts/history",
+        "method": "GET",
+        "description": "Return the alert history for this network"
+    },
+    {
+        "path": "/networks/{networkId}/alerts/settings",
+        "method": "PUT",
+        "description": "Update the alert configuration for this network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/clients/{clientId}/security/events",
+        "method": "GET",
+        "description": "List the security events for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/connectivityMonitoringDestinations",
+        "method": "PUT",
+        "description": "Update the connectivity testing destinations for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/contentFiltering",
+        "method": "PUT",
+        "description": "Update the content filtering settings for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/contentFiltering/categories",
+        "method": "GET",
+        "description": "List all available content filtering categories for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/cellularFirewallRules",
+        "method": "PUT",
+        "description": "Update the cellular firewall rules of an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/firewalledServices",
+        "method": "GET",
+        "description": "List the appliance services and their accessibility rules"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/firewalledServices/{service}",
+        "method": "PUT",
+        "description": "Updates the accessibility settings for the given service ('ICMP', 'web', or 'SNMP')"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/inboundCellularFirewallRules",
+        "method": "PUT",
+        "description": "Update the inbound cellular firewall rules of an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/inboundFirewallRules",
+        "method": "PUT",
+        "description": "Update the inbound firewall rules of an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/l3FirewallRules",
+        "method": "PUT",
+        "description": "Update the L3 firewall rules of an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/l7FirewallRules",
+        "method": "PUT",
+        "description": "Update the MX L7 firewall rules for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/l7FirewallRules/applicationCategories",
+        "method": "GET",
+        "description": "Return the L7 firewall application categories and their associated applications for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/oneToManyNatRules",
+        "method": "PUT",
+        "description": "Set the 1:Many NAT mapping rules for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/oneToOneNatRules",
+        "method": "PUT",
+        "description": "Set the 1:1 NAT mapping rules for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/portForwardingRules",
+        "method": "PUT",
+        "description": "Update the port forwarding rules for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/firewall/settings",
+        "method": "PUT",
+        "description": "Update the firewall settings for this network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/ports",
+        "method": "GET",
+        "description": "List per-port VLAN settings for all ports of a MX."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/ports/{portId}",
+        "method": "PUT",
+        "description": "Update the per-port VLAN settings for a single MX port."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/prefixes/delegated/statics",
+        "method": "POST",
+        "description": "Add a static delegated prefix from a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}",
+        "method": "DELETE",
+        "description": "Delete a static delegated prefix from a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/rfProfiles",
+        "method": "POST",
+        "description": "Creates new RF profile for this network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/rfProfiles/{rfProfileId}",
+        "method": "GET",
+        "description": "Return a RF profile"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/sdwan/internetPolicies",
+        "method": "PUT",
+        "description": "Update SDWAN internet traffic preferences for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/security/events",
+        "method": "GET",
+        "description": "List the security events for a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/security/intrusion",
+        "method": "PUT",
+        "description": "Set the supported intrusion settings for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/security/malware",
+        "method": "PUT",
+        "description": "Set the supported malware settings for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/settings",
+        "method": "PUT",
+        "description": "Update the appliance settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/singleLan",
+        "method": "PUT",
+        "description": "Update single LAN configuration"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/ssids",
+        "method": "GET",
+        "description": "List the MX SSIDs in a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/ssids/{number}",
+        "method": "PUT",
+        "description": "Update the attributes of an MX SSID"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/staticRoutes",
+        "method": "POST",
+        "description": "Add a static route for an MX or teleworker network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/staticRoutes/{staticRouteId}",
+        "method": "DELETE",
+        "description": "Delete a static route from an MX or teleworker network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping",
+        "method": "PUT",
+        "description": "Update the traffic shaping settings for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses",
+        "method": "POST",
+        "description": "Add a custom performance class for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}",
+        "method": "DELETE",
+        "description": "Delete a custom performance class from an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/rules",
+        "method": "GET",
+        "description": "Display the traffic shaping settings rules for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth",
+        "method": "PUT",
+        "description": "Updates the uplink bandwidth settings for your MX network."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/uplinkSelection",
+        "method": "PUT",
+        "description": "Update uplink selection settings for an MX network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/trafficShaping/vpnExclusions",
+        "method": "PUT",
+        "description": "Update VPN exclusion rules for an MX network."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/uplinks/usageHistory",
+        "method": "GET",
+        "description": "Get the sent and received bytes for each uplink of a network."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/vlans",
+        "method": "POST",
+        "description": "Add a VLAN"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/vlans/settings",
+        "method": "PUT",
+        "description": "Enable/Disable VLANs for the given network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/vlans/{vlanId}",
+        "method": "DELETE",
+        "description": "Delete a VLAN from a network"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/vpn/bgp",
+        "method": "PUT",
+        "description": "Update a Hub BGP Configuration"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/vpn/siteToSiteVpn",
+        "method": "PUT",
+        "description": "Update the site-to-site VPN settings of a network. Only valid for MX networks in NAT mode."
+    },
+    {
+        "path": "/networks/{networkId}/appliance/warmSpare",
+        "method": "PUT",
+        "description": "Update MX warm spare settings"
+    },
+    {
+        "path": "/networks/{networkId}/appliance/warmSpare/swap",
+        "method": "POST",
+        "description": "Swap MX primary and warm spare appliances"
+    },
+    {
+        "path": "/networks/{networkId}/bind",
+        "method": "POST",
+        "description": "Bind a network to a template."
+    },
+    {
+        "path": "/networks/{networkId}/bluetoothClients",
+        "method": "GET",
+        "description": "List the Bluetooth clients seen by APs in this network"
+    },
+    {
+        "path": "/networks/{networkId}/bluetoothClients/{bluetoothClientId}",
+        "method": "GET",
+        "description": "Return a Bluetooth client. Bluetooth clients can be identified by their ID or their MAC."
+    },
+    {
+        "path": "/networks/{networkId}/camera/qualityRetentionProfiles",
+        "method": "POST",
+        "description": "Creates new quality retention profile for this network."
+    },
+    {
+        "path": "/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}",
+        "method": "DELETE",
+        "description": "Delete an existing quality retention profile for this network."
+    },
+    {
+        "path": "/networks/{networkId}/camera/schedules",
+        "method": "GET",
+        "description": "Returns a list of all camera recording schedules."
+    },
+    {
+        "path": "/networks/{networkId}/camera/wirelessProfiles",
+        "method": "GET",
+        "description": "List the camera wireless profiles for this network."
+    },
+    {
+        "path": "/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}",
+        "method": "DELETE",
+        "description": "Delete an existing camera wireless profile for this network."
+    },
+    {
+        "path": "/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations",
+        "method": "PUT",
+        "description": "Update the connectivity testing destinations for an MG network"
+    },
+    {
+        "path": "/networks/{networkId}/cellularGateway/dhcp",
+        "method": "PUT",
+        "description": "Update common DHCP settings of MGs"
+    },
+    {
+        "path": "/networks/{networkId}/cellularGateway/subnetPool",
+        "method": "PUT",
+        "description": "Update the subnet pool and mask configuration for MGs in the network."
+    },
+    {
+        "path": "/networks/{networkId}/cellularGateway/uplink",
+        "method": "PUT",
+        "description": "Updates the uplink settings for your MG network."
+    },
+    {
+        "path": "/networks/{networkId}/clients",
+        "method": "GET",
+        "description": "List the clients that have used this network in the timespan. The data is updated at most once every five minutes."
+    },
+    {
+        "path": "/networks/{networkId}/clients/applicationUsage",
+        "method": "GET",
+        "description": "Return the application usage data for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/bandwidthUsageHistory",
+        "method": "GET",
+        "description": "Returns a timeseries of total traffic consumption rates for all clients on a network within a given timespan, in megabits per second."
+    },
+    {
+        "path": "/networks/{networkId}/clients/overview",
+        "method": "GET",
+        "description": "Return overview statistics for network clients"
+    },
+    {
+        "path": "/networks/{networkId}/clients/provision",
+        "method": "POST",
+        "description": "Provisions a client with a name and policy. Clients can be provisioned before they associate to the network."
+    },
+    {
+        "path": "/networks/{networkId}/clients/usageHistories",
+        "method": "GET",
+        "description": "Return the usage histories for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/{clientId}",
+        "method": "GET",
+        "description": "Return the client associated with the given identifier. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/{clientId}/policy",
+        "method": "PUT",
+        "description": "Update the policy assigned to a client on the network. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus",
+        "method": "PUT",
+        "description": "Update a client's splash authorization. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/{clientId}/trafficHistory",
+        "method": "GET",
+        "description": "Return the client's network traffic data over time. Usage data is in kilobytes. This endpoint requires detailed traffic analysis to be enabled on the Network-wide > General page. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/clients/{clientId}/usageHistory",
+        "method": "GET",
+        "description": "Return the client's daily usage history. Usage data is in kilobytes. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+    },
+    {
+        "path": "/networks/{networkId}/devices",
+        "method": "GET",
+        "description": "List the devices in a network"
+    },
+    {
+        "path": "/networks/{networkId}/devices/claim",
+        "method": "POST",
+        "description": "Claim devices into a network. (Note: for recently claimed devices, it may take a few minutes for API requests against that device to succeed). This operation can be used up to ten times within a single five minute window."
+    },
+    {
+        "path": "/networks/{networkId}/devices/claim/vmx",
+        "method": "POST",
+        "description": "Claim a vMX into a network"
+    },
+    {
+        "path": "/networks/{networkId}/devices/remove",
+        "method": "POST",
+        "description": "Remove a single device"
+    },
+    {
+        "path": "/networks/{networkId}/events",
+        "method": "GET",
+        "description": "List the events for the network"
+    },
+    {
+        "path": "/networks/{networkId}/events/eventTypes",
+        "method": "GET",
+        "description": "List the event type to human-readable description"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades",
+        "method": "PUT",
+        "description": "Update firmware upgrade information for a network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/rollbacks",
+        "method": "POST",
+        "description": "Rollback a Firmware Upgrade For A Network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/events",
+        "method": "PUT",
+        "description": "Update the Staged Upgrade Event for a network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/events/defer",
+        "method": "POST",
+        "description": "Postpone by 1 week all pending staged upgrade stages for a network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/events/rollbacks",
+        "method": "POST",
+        "description": "Rollback a Staged Upgrade Event for a network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/groups",
+        "method": "POST",
+        "description": "Create a Staged Upgrade Group for a network"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}",
+        "method": "DELETE",
+        "description": "Delete a Staged Upgrade Group"
+    },
+    {
+        "path": "/networks/{networkId}/firmwareUpgrades/staged/stages",
+        "method": "PUT",
+        "description": "Assign Staged Upgrade Group order in the sequence."
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans",
+        "method": "POST",
+        "description": "Upload a floor plan"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/autoLocate/jobs/batch",
+        "method": "POST",
+        "description": "Schedule auto locate jobs for one or more floor plans in a network"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/cancel",
+        "method": "POST",
+        "description": "Cancel a scheduled or running auto locate job"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/publish",
+        "method": "POST",
+        "description": "Update the status of a finished auto locate job to be published, and update device locations"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/recalculate",
+        "method": "POST",
+        "description": "Trigger auto locate recalculation for a job, and optionally set anchors"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/devices/batchUpdate",
+        "method": "POST",
+        "description": "Update floorplan assignments for a batch of devices"
+    },
+    {
+        "path": "/networks/{networkId}/floorPlans/{floorPlanId}",
+        "method": "DELETE",
+        "description": "Destroy a floor plan"
+    },
+    {
+        "path": "/networks/{networkId}/groupPolicies",
+        "method": "POST",
+        "description": "Create a group policy"
+    },
+    {
+        "path": "/networks/{networkId}/groupPolicies/{groupPolicyId}",
+        "method": "DELETE",
+        "description": "Delete a group policy"
+    },
+    {
+        "path": "/networks/{networkId}/health/alerts",
+        "method": "GET",
+        "description": "Return all global alerts on this network"
+    },
+    {
+        "path": "/networks/{networkId}/insight/applications/{applicationId}/healthByTime",
+        "method": "GET",
+        "description": "Get application health by time"
+    },
+    {
+        "path": "/networks/{networkId}/merakiAuthUsers",
+        "method": "POST",
+        "description": "Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)"
+    },
+    {
+        "path": "/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}",
+        "method": "PUT",
+        "description": "Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)"
+    },
+    {
+        "path": "/networks/{networkId}/mqttBrokers",
+        "method": "POST",
+        "description": "Add an MQTT broker"
+    },
+    {
+        "path": "/networks/{networkId}/mqttBrokers/{mqttBrokerId}",
+        "method": "DELETE",
+        "description": "Delete an MQTT broker"
+    },
+    {
+        "path": "/networks/{networkId}/netflow",
+        "method": "PUT",
+        "description": "Update the NetFlow traffic reporting settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/networkHealth/channelUtilization",
+        "method": "GET",
+        "description": "Get the channel utilization over each radio for all APs in a network."
+    },
+    {
+        "path": "/networks/{networkId}/pii/piiKeys",
+        "method": "GET",
+        "description": "List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \"0\" containing the applicable keys."
+    },
+    {
+        "path": "/networks/{networkId}/pii/requests",
+        "method": "POST",
+        "description": "Submit a new delete or restrict processing PII request"
+    },
+    {
+        "path": "/networks/{networkId}/pii/requests/{requestId}",
+        "method": "DELETE",
+        "description": "Delete a restrict processing PII request"
+    },
+    {
+        "path": "/networks/{networkId}/pii/smDevicesForKey",
+        "method": "GET",
+        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details. Exactly one identifier will be accepted."
+    },
+    {
+        "path": "/networks/{networkId}/pii/smOwnersForKey",
+        "method": "GET",
+        "description": "Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier. These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details. Exactly one identifier will be accepted."
+    },
+    {
+        "path": "/networks/{networkId}/policies/byClient",
+        "method": "GET",
+        "description": "Get policies for all clients with policies"
+    },
+    {
+        "path": "/networks/{networkId}/sensor/alerts/current/overview/byMetric",
+        "method": "GET",
+        "description": "Return an overview of currently alerting sensors by metric"
+    },
+    {
+        "path": "/networks/{networkId}/sensor/alerts/overview/byMetric",
+        "method": "GET",
+        "description": "Return an overview of alert occurrences over a timespan, by metric"
+    },
+    {
+        "path": "/networks/{networkId}/sensor/alerts/profiles",
+        "method": "POST",
+        "description": "Creates a sensor alert profile for a network."
+    },
+    {
+        "path": "/networks/{networkId}/sensor/alerts/profiles/{id}",
+        "method": "DELETE",
+        "description": "Deletes a sensor alert profile from a network."
+    },
+    {
+        "path": "/networks/{networkId}/sensor/mqttBrokers",
+        "method": "GET",
+        "description": "List the sensor settings of all MQTT brokers for this network. To get the brokers themselves, use /networks/{networkId}/mqttBrokers."
+    },
+    {
+        "path": "/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}",
+        "method": "PUT",
+        "description": "Update the sensor settings of an MQTT broker. To update the broker itself, use /networks/{networkId}/mqttBrokers/{mqttBrokerId}."
+    },
+    {
+        "path": "/networks/{networkId}/sensor/relationships",
+        "method": "GET",
+        "description": "List the sensor roles for devices in a given network"
+    },
+    {
+        "path": "/networks/{networkId}/settings",
+        "method": "PUT",
+        "description": "Update the settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/sm/bypassActivationLockAttempts",
+        "method": "POST",
+        "description": "Bypass activation lock attempt"
+    },
+    {
+        "path": "/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}",
+        "method": "GET",
+        "description": "Bypass activation lock attempt status"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices",
+        "method": "GET",
+        "description": "List the devices enrolled in an SM network with various specified fields and filters"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/checkin",
+        "method": "POST",
+        "description": "Force check-in a set of devices"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/fields",
+        "method": "PUT",
+        "description": "Modify the fields of a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/lock",
+        "method": "POST",
+        "description": "Lock a set of devices"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/modifyTags",
+        "method": "POST",
+        "description": "Add, delete, or update the tags of a set of devices"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/move",
+        "method": "POST",
+        "description": "Move a set of devices to a new network"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/reboot",
+        "method": "POST",
+        "description": "Reboot a set of endpoints"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/shutdown",
+        "method": "POST",
+        "description": "Shutdown a set of endpoints"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/wipe",
+        "method": "POST",
+        "description": "Wipe a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory",
+        "method": "GET",
+        "description": "Return the client's daily cellular data usage history. Usage data is in kilobytes."
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/certs",
+        "method": "GET",
+        "description": "List the certs on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/connectivity",
+        "method": "GET",
+        "description": "Returns historical connectivity data (whether a device is regularly checking in to Dashboard)."
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/desktopLogs",
+        "method": "GET",
+        "description": "Return historical records of various Systems Manager network connection details for desktop devices."
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs",
+        "method": "GET",
+        "description": "Return historical records of commands sent to Systems Manager devices. Note that this will include the name of the Dashboard user who initiated the command if it was generated by a Dashboard admin rather than the automatic behavior of the system; you may wish to filter this out of any reports."
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/deviceProfiles",
+        "method": "GET",
+        "description": "Get the installed profiles associated with a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/installApps",
+        "method": "POST",
+        "description": "Install applications on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/networkAdapters",
+        "method": "GET",
+        "description": "List the network adapters of a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/performanceHistory",
+        "method": "GET",
+        "description": "Return historical records of various Systems Manager client metrics for desktop devices."
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/refreshDetails",
+        "method": "POST",
+        "description": "Refresh the details of a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/restrictions",
+        "method": "GET",
+        "description": "List the restrictions on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/securityCenters",
+        "method": "GET",
+        "description": "List the security centers on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/softwares",
+        "method": "GET",
+        "description": "Get a list of softwares associated with a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/unenroll",
+        "method": "POST",
+        "description": "Unenroll a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/uninstallApps",
+        "method": "POST",
+        "description": "Uninstall applications on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/devices/{deviceId}/wlanLists",
+        "method": "GET",
+        "description": "List the saved SSID names on a device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/profiles",
+        "method": "GET",
+        "description": "List all profiles in a network"
+    },
+    {
+        "path": "/networks/{networkId}/sm/targetGroups",
+        "method": "POST",
+        "description": "Add a target group"
+    },
+    {
+        "path": "/networks/{networkId}/sm/targetGroups/{targetGroupId}",
+        "method": "DELETE",
+        "description": "Delete a target group from a network"
+    },
+    {
+        "path": "/networks/{networkId}/sm/trustedAccessConfigs",
+        "method": "GET",
+        "description": "List Trusted Access Configs"
+    },
+    {
+        "path": "/networks/{networkId}/sm/userAccessDevices",
+        "method": "GET",
+        "description": "List User Access Devices and its Trusted Access Connections"
+    },
+    {
+        "path": "/networks/{networkId}/sm/userAccessDevices/{userAccessDeviceId}",
+        "method": "DELETE",
+        "description": "Delete a User Access Device"
+    },
+    {
+        "path": "/networks/{networkId}/sm/users",
+        "method": "GET",
+        "description": "List the owners in an SM network with various specified fields and filters"
+    },
+    {
+        "path": "/networks/{networkId}/sm/users/{userId}/deviceProfiles",
+        "method": "GET",
+        "description": "Get the profiles associated with a user"
+    },
+    {
+        "path": "/networks/{networkId}/sm/users/{userId}/softwares",
+        "method": "GET",
+        "description": "Get a list of softwares associated with a user"
+    },
+    {
+        "path": "/networks/{networkId}/snmp",
+        "method": "PUT",
+        "description": "Update the SNMP settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/splashLoginAttempts",
+        "method": "GET",
+        "description": "List the splash login attempts for a network"
+    },
+    {
+        "path": "/networks/{networkId}/split",
+        "method": "POST",
+        "description": "Split a combined network into individual networks for each type of device"
+    },
+    {
+        "path": "/networks/{networkId}/switch/accessControlLists",
+        "method": "PUT",
+        "description": "Update the access control lists for a MS network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/accessPolicies",
+        "method": "POST",
+        "description": "Create an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array."
+    },
+    {
+        "path": "/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}",
+        "method": "DELETE",
+        "description": "Delete an access policy for a switch network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/alternateManagementInterface",
+        "method": "PUT",
+        "description": "Update the switch alternate management interface for the network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dhcp/v4/servers/seen",
+        "method": "GET",
+        "description": "Return the network's DHCPv4 servers seen within the selected timeframe (default 1 day)"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dhcpServerPolicy",
+        "method": "PUT",
+        "description": "Update the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers",
+        "method": "POST",
+        "description": "Add a server to be trusted by Dynamic ARP Inspection on this network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}",
+        "method": "DELETE",
+        "description": "Remove a server from being trusted by Dynamic ARP Inspection on this network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/warnings/byDevice",
+        "method": "GET",
+        "description": "Return the devices that have a Dynamic ARP Inspection warning and their warnings"
+    },
+    {
+        "path": "/networks/{networkId}/switch/dscpToCosMappings",
+        "method": "PUT",
+        "description": "Update the DSCP to CoS mappings"
+    },
+    {
+        "path": "/networks/{networkId}/switch/linkAggregations",
+        "method": "POST",
+        "description": "Create a link aggregation group"
+    },
+    {
+        "path": "/networks/{networkId}/switch/linkAggregations/{linkAggregationId}",
+        "method": "DELETE",
+        "description": "Split a link aggregation group into separate ports"
+    },
+    {
+        "path": "/networks/{networkId}/switch/mtu",
+        "method": "PUT",
+        "description": "Update the MTU configuration"
+    },
+    {
+        "path": "/networks/{networkId}/switch/portSchedules",
+        "method": "POST",
+        "description": "Add a switch port schedule"
+    },
+    {
+        "path": "/networks/{networkId}/switch/portSchedules/{portScheduleId}",
+        "method": "PUT",
+        "description": "Update a switch port schedule"
+    },
+    {
+        "path": "/networks/{networkId}/switch/qosRules",
+        "method": "POST",
+        "description": "Add a quality of service rule"
+    },
+    {
+        "path": "/networks/{networkId}/switch/qosRules/order",
+        "method": "PUT",
+        "description": "Update the order in which the rules should be processed by the switch"
+    },
+    {
+        "path": "/networks/{networkId}/switch/qosRules/{qosRuleId}",
+        "method": "PUT",
+        "description": "Update a quality of service rule"
+    },
+    {
+        "path": "/networks/{networkId}/switch/routing/multicast",
+        "method": "PUT",
+        "description": "Update multicast settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/routing/multicast/rendezvousPoints",
+        "method": "POST",
+        "description": "Create a multicast rendezvous point"
+    },
+    {
+        "path": "/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}",
+        "method": "PUT",
+        "description": "Update a multicast rendezvous point"
+    },
+    {
+        "path": "/networks/{networkId}/switch/routing/ospf",
+        "method": "PUT",
+        "description": "Update layer 3 OSPF routing configuration"
+    },
+    {
+        "path": "/networks/{networkId}/switch/settings",
+        "method": "PUT",
+        "description": "Update switch network settings"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks",
+        "method": "POST",
+        "description": "Create a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}",
+        "method": "DELETE",
+        "description": "Delete a stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/add",
+        "method": "POST",
+        "description": "Add a switch to a stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/remove",
+        "method": "POST",
+        "description": "Remove a switch from a stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces",
+        "method": "POST",
+        "description": "Create a layer 3 interface for a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}",
+        "method": "DELETE",
+        "description": "Delete a layer 3 interface from a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp",
+        "method": "PUT",
+        "description": "Update a layer 3 interface DHCP configuration for a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes",
+        "method": "POST",
+        "description": "Create a layer 3 static route for a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}",
+        "method": "DELETE",
+        "description": "Delete a layer 3 static route for a switch stack"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stormControl",
+        "method": "PUT",
+        "description": "Update the storm control configuration for a switch network"
+    },
+    {
+        "path": "/networks/{networkId}/switch/stp",
+        "method": "PUT",
+        "description": "Updates STP settings"
+    },
+    {
+        "path": "/networks/{networkId}/syslogServers",
+        "method": "PUT",
+        "description": "Update the syslog servers for a network"
+    },
+    {
+        "path": "/networks/{networkId}/topology/linkLayer",
+        "method": "GET",
+        "description": "List the LLDP and CDP information for all discovered devices and connections in a network. At least one MX or MS device must be in the network in order to build the topology."
+    },
+    {
+        "path": "/networks/{networkId}/traffic",
+        "method": "GET",
+        "description": "Return the traffic analysis data for this network. Traffic analysis with hostname visibility must be enabled on the network."
+    },
+    {
+        "path": "/networks/{networkId}/trafficAnalysis",
+        "method": "PUT",
+        "description": "Update the traffic analysis settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/trafficShaping/applicationCategories",
+        "method": "GET",
+        "description": "Returns the application categories for traffic shaping rules. Only applicable on networks with a security applicance."
+    },
+    {
+        "path": "/networks/{networkId}/trafficShaping/dscpTaggingOptions",
+        "method": "GET",
+        "description": "Returns the available DSCP tagging options for your traffic shaping rules."
+    },
+    {
+        "path": "/networks/{networkId}/unbind",
+        "method": "POST",
+        "description": "Unbind a network from a template."
+    },
+    {
+        "path": "/networks/{networkId}/vlanProfiles",
+        "method": "POST",
+        "description": "Create a VLAN profile for a network"
+    },
+    {
+        "path": "/networks/{networkId}/vlanProfiles/assignments/byDevice",
+        "method": "GET",
+        "description": "Get the assigned VLAN Profiles for devices in a network"
+    },
+    {
+        "path": "/networks/{networkId}/vlanProfiles/assignments/reassign",
+        "method": "POST",
+        "description": "Update the assigned VLAN Profile for devices in a network"
+    },
+    {
+        "path": "/networks/{networkId}/vlanProfiles/{iname}",
+        "method": "DELETE",
+        "description": "Delete a VLAN profile of a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/httpServers",
+        "method": "POST",
+        "description": "Add an HTTP server to a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/httpServers/{httpServerId}",
+        "method": "DELETE",
+        "description": "Delete an HTTP server from a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/payloadTemplates",
+        "method": "POST",
+        "description": "Create a webhook payload template for a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}",
+        "method": "PUT",
+        "description": "Update a webhook payload template for a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/webhookTests",
+        "method": "POST",
+        "description": "Send a test webhook for a network"
+    },
+    {
+        "path": "/networks/{networkId}/webhooks/webhookTests/{webhookTestId}",
+        "method": "GET",
+        "description": "Return the status of a webhook test for a network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/airMarshal",
+        "method": "GET",
+        "description": "List Air Marshal scan results from a network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/airMarshal/rules",
+        "method": "POST",
+        "description": "Creates a new rule"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/airMarshal/rules/{ruleId}",
+        "method": "DELETE",
+        "description": "Delete an Air Marshal rule."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/airMarshal/settings",
+        "method": "PUT",
+        "description": "Updates Air Marshal settings."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/alternateManagementInterface",
+        "method": "PUT",
+        "description": "Update alternate management interface and device static IP"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/billing",
+        "method": "PUT",
+        "description": "Update the billing settings"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/bluetooth/settings",
+        "method": "PUT",
+        "description": "Update the Bluetooth settings for a network. See the docs page for <a href=\"https://documentation.meraki.com/MR/Bluetooth/Bluetooth_Low_Energy_(BLE)\">Bluetooth settings</a>."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/channelUtilizationHistory",
+        "method": "GET",
+        "description": "Return AP channel utilization over time for a device or network client"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clientCountHistory",
+        "method": "GET",
+        "description": "Return wireless client counts over time for a network, device, or network client"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/connectionStats",
+        "method": "GET",
+        "description": "Aggregated connectivity info for this network, grouped by clients"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/latencyStats",
+        "method": "GET",
+        "description": "Aggregated latency info for this network, grouped by clients"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/{clientId}/connectionStats",
+        "method": "GET",
+        "description": "Aggregated connectivity info for a given client on this network. Clients are identified by their MAC."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/{clientId}/connectivityEvents",
+        "method": "GET",
+        "description": "List the wireless connectivity events for a client within a network in the timespan."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/{clientId}/latencyHistory",
+        "method": "GET",
+        "description": "Return the latency history for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP. The latency data is from a sample of 2% of packets and is grouped into 4 traffic categories: background, best effort, video, voice. Within these categories the sampled packet counters are bucketed by latency in milliseconds."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/clients/{clientId}/latencyStats",
+        "method": "GET",
+        "description": "Aggregated latency info for a given client on this network. Clients are identified by their MAC."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/connectionStats",
+        "method": "GET",
+        "description": "Aggregated connectivity info for this network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/dataRateHistory",
+        "method": "GET",
+        "description": "Return PHY data rates over time for a network, device, or network client"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/devices/connectionStats",
+        "method": "GET",
+        "description": "Aggregated connectivity info for this network, grouped by node"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/devices/latencyStats",
+        "method": "GET",
+        "description": "Aggregated latency info for this network, grouped by node"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/electronicShelfLabel",
+        "method": "PUT",
+        "description": "Update the ESL settings of a wireless network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/electronicShelfLabel/configuredDevices",
+        "method": "GET",
+        "description": "Get a list of all ESL eligible devices of a network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ethernet/ports/profiles",
+        "method": "POST",
+        "description": "Create an AP port profile"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ethernet/ports/profiles/assign",
+        "method": "POST",
+        "description": "Assign AP port profile to list of APs"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ethernet/ports/profiles/setDefault",
+        "method": "POST",
+        "description": "Set the AP port profile to be default for this network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}",
+        "method": "DELETE",
+        "description": "Delete an AP port profile"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/failedConnections",
+        "method": "GET",
+        "description": "List of all failed client connection events on this network in a given time range"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/latencyHistory",
+        "method": "GET",
+        "description": "Return average wireless latency over time for a network, device, or network client"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/latencyStats",
+        "method": "GET",
+        "description": "Aggregated latency info for this network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/meshStatuses",
+        "method": "GET",
+        "description": "List wireless mesh statuses for repeaters"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/rfProfiles",
+        "method": "POST",
+        "description": "Creates new RF profile for this network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/rfProfiles/{rfProfileId}",
+        "method": "GET",
+        "description": "Return a RF profile"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/settings",
+        "method": "PUT",
+        "description": "Update the wireless settings for a network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/signalQualityHistory",
+        "method": "GET",
+        "description": "Return signal quality (SNR/RSSI) over time for a device or network client"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids",
+        "method": "GET",
+        "description": "List the MR SSIDs in a network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}",
+        "method": "PUT",
+        "description": "Update the attributes of an MR SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding",
+        "method": "PUT",
+        "description": "Update the bonjour forwarding setting and rules for the SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies",
+        "method": "PUT",
+        "description": "Update the device type group policies for the SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/eapOverride",
+        "method": "PUT",
+        "description": "Update the EAP overridden parameters for an SSID."
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules",
+        "method": "PUT",
+        "description": "Update the L3 firewall rules of an SSID on an MR network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules",
+        "method": "PUT",
+        "description": "Update the L7 firewall rules of an SSID on an MR network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/hotspot20",
+        "method": "PUT",
+        "description": "Update the Hotspot 2.0 settings of an SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/identityPsks",
+        "method": "POST",
+        "description": "Create an Identity PSK"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}",
+        "method": "DELETE",
+        "description": "Delete an Identity PSK"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/schedules",
+        "method": "PUT",
+        "description": "Update the outage schedule for the SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/splash/settings",
+        "method": "PUT",
+        "description": "Modify the splash page settings for the given SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules",
+        "method": "GET",
+        "description": "Display the traffic shaping settings for a SSID on an MR network"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/ssids/{number}/vpn",
+        "method": "PUT",
+        "description": "Update the VPN settings for the SSID"
+    },
+    {
+        "path": "/networks/{networkId}/wireless/usageHistory",
+        "method": "GET",
+        "description": "Return AP usage over time for a device or network client"
+    },
+    {
+        "path": "/organizations",
+        "method": "POST",
+        "description": "Create a new organization"
+    },
+    {
+        "path": "/organizations/{organizationId}",
+        "method": "DELETE",
+        "description": "Delete an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/actionBatches",
+        "method": "GET",
+        "description": "Return the list of action batches in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/actionBatches/{actionBatchId}",
+        "method": "PUT",
+        "description": "Update an action batch"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/acls",
+        "method": "POST",
+        "description": "Creates new adaptive policy ACL"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/acls/{aclId}",
+        "method": "DELETE",
+        "description": "Deletes the specified adaptive policy ACL. Note this adaptive policy ACL will also be removed from policies using it."
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/groups",
+        "method": "POST",
+        "description": "Creates a new adaptive policy group"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/groups/{id}",
+        "method": "DELETE",
+        "description": "Deletes the specified adaptive policy group and any associated policies and references"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/overview",
+        "method": "GET",
+        "description": "Returns adaptive policy aggregate statistics for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/policies",
+        "method": "POST",
+        "description": "Add an Adaptive Policy"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/policies/{id}",
+        "method": "DELETE",
+        "description": "Delete an Adaptive Policy"
+    },
+    {
+        "path": "/organizations/{organizationId}/adaptivePolicy/settings",
+        "method": "PUT",
+        "description": "Update global adaptive policy settings"
+    },
+    {
+        "path": "/organizations/{organizationId}/admins",
+        "method": "POST",
+        "description": "Create a new dashboard administrator"
+    },
+    {
+        "path": "/organizations/{organizationId}/admins/{adminId}",
+        "method": "DELETE",
+        "description": "Revoke all access for a dashboard administrator within this organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/alerts/profiles",
+        "method": "POST",
+        "description": "Create an organization-wide alert configuration"
+    },
+    {
+        "path": "/organizations/{organizationId}/alerts/profiles/{alertConfigId}",
+        "method": "DELETE",
+        "description": "Removes an organization-wide alert config"
+    },
+    {
+        "path": "/organizations/{organizationId}/apiRequests",
+        "method": "GET",
+        "description": "List the API requests made by an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/apiRequests/overview",
+        "method": "GET",
+        "description": "Return an aggregated overview of API requests data"
+    },
+    {
+        "path": "/organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval",
+        "method": "GET",
+        "description": "Tracks organizations' API requests by response code across a given time period"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/security/events",
+        "method": "GET",
+        "description": "List the security events for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/security/intrusion",
+        "method": "PUT",
+        "description": "Sets supported intrusion settings for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork",
+        "method": "GET",
+        "description": "Display VPN exclusion rules for MX networks."
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/uplink/statuses",
+        "method": "GET",
+        "description": "List the uplink status of every Meraki MX and Z series appliances in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/uplinks/statuses/overview",
+        "method": "GET",
+        "description": "Returns an overview of uplink statuses"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/uplinks/usage/byNetwork",
+        "method": "GET",
+        "description": "Get the sent and received bytes for each uplink of all MX and Z networks within an organization. If more than one device was active during the specified timespan, then the sent and received bytes will be aggregated by interface."
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/vpn/stats",
+        "method": "GET",
+        "description": "Show VPN history stat for networks in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/vpn/statuses",
+        "method": "GET",
+        "description": "Show VPN status for networks in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers",
+        "method": "PUT",
+        "description": "Update the third party VPN peers for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/appliance/vpn/vpnFirewallRules",
+        "method": "PUT",
+        "description": "Update the firewall rules of an organization's site-to-site VPN"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts",
+        "method": "GET",
+        "description": "Return all health alerts for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/dismiss",
+        "method": "POST",
+        "description": "Dismiss health alerts"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/overview",
+        "method": "GET",
+        "description": "Return overview of active health alerts for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/overview/byNetwork",
+        "method": "GET",
+        "description": "Return a Summary of Alerts grouped by network and severity"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/overview/byType",
+        "method": "GET",
+        "description": "Return a Summary of Alerts grouped by type and severity"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/overview/historical",
+        "method": "GET",
+        "description": "Returns historical health alert overviews"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/restore",
+        "method": "POST",
+        "description": "Restore health alerts from dismissed"
+    },
+    {
+        "path": "/organizations/{organizationId}/assurance/alerts/{id}",
+        "method": "GET",
+        "description": "Return a singular Health Alert by its id"
+    },
+    {
+        "path": "/organizations/{organizationId}/brandingPolicies",
+        "method": "POST",
+        "description": "Add a new branding policy to an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/brandingPolicies/priorities",
+        "method": "PUT",
+        "description": "Update the priority ordering of an organization's branding policies."
+    },
+    {
+        "path": "/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}",
+        "method": "DELETE",
+        "description": "Delete a branding policy"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/boundaries/areas/byDevice",
+        "method": "GET",
+        "description": "Returns all configured area boundaries of cameras"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/boundaries/lines/byDevice",
+        "method": "GET",
+        "description": "Returns all configured crossingline boundaries of cameras"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/customAnalytics/artifacts",
+        "method": "POST",
+        "description": "Create custom analytics artifact. Returns an artifact upload URL with expiry time. Upload the artifact file with a put request to the returned upload URL before its expiry."
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}",
+        "method": "DELETE",
+        "description": "Delete Custom Analytics Artifact"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/detections/history/byBoundary/byInterval",
+        "method": "GET",
+        "description": "Returns analytics data for timespans"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/onboarding/statuses",
+        "method": "PUT",
+        "description": "Notify that credential handoff to camera has completed"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/permissions",
+        "method": "GET",
+        "description": "List the permissions scopes for this organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/permissions/{permissionScopeId}",
+        "method": "GET",
+        "description": "Retrieve a single permission scope"
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/roles",
+        "method": "POST",
+        "description": "Creates new role for this organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/camera/roles/{roleId}",
+        "method": "PUT",
+        "description": "Update an existing role in this organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/inventory",
+        "method": "GET",
+        "description": "The eSIM inventory of a given organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/inventory/{id}",
+        "method": "PUT",
+        "description": "Toggle the status of an eSIM"
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/serviceProviders",
+        "method": "GET",
+        "description": "Service providers customers can add accounts for."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts",
+        "method": "POST",
+        "description": "Add a service provider account."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/communicationPlans",
+        "method": "GET",
+        "description": "The communication plans available for a given provider."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/ratePlans",
+        "method": "GET",
+        "description": "The rate plans available for a given provider."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}",
+        "method": "DELETE",
+        "description": "Remove a service provider account's integration with the Dashboard."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/swap",
+        "method": "POST",
+        "description": "Swap which profile an eSIM uses."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/esims/swap/{id}",
+        "method": "PUT",
+        "description": "Get the status of a profile swap."
+    },
+    {
+        "path": "/organizations/{organizationId}/cellularGateway/uplink/statuses",
+        "method": "GET",
+        "description": "List the uplink status of every Meraki MG cellular gateway in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/claim",
+        "method": "POST",
+        "description": "Claim a list of devices, licenses, and/or orders into an organization inventory. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. This operation can be used up to ten times within a single five minute window."
+    },
+    {
+        "path": "/organizations/{organizationId}/clients/bandwidthUsageHistory",
+        "method": "GET",
+        "description": "Return data usage (in megabits per second) over time for all clients in the given organization within a given time range."
+    },
+    {
+        "path": "/organizations/{organizationId}/clients/overview",
+        "method": "GET",
+        "description": "Return summary information around client data usage (in kb) across the given organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/clients/search",
+        "method": "GET",
+        "description": "Return the client details in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/clone",
+        "method": "POST",
+        "description": "Create a new organization by cloning the addressed organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/configTemplates",
+        "method": "POST",
+        "description": "Create a new configuration template"
+    },
+    {
+        "path": "/organizations/{organizationId}/configTemplates/{configTemplateId}",
+        "method": "DELETE",
+        "description": "Remove a configuration template"
+    },
+    {
+        "path": "/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles",
+        "method": "GET",
+        "description": "List the switch templates for your switch template configuration"
+    },
+    {
+        "path": "/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports",
+        "method": "GET",
+        "description": "Return all the ports of a switch template"
+    },
+    {
+        "path": "/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}",
+        "method": "PUT",
+        "description": "Update a switch template port"
+    },
+    {
+        "path": "/organizations/{organizationId}/configurationChanges",
+        "method": "GET",
+        "description": "View the Change Log for your organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/devices",
+        "method": "GET",
+        "description": "List the devices in an organization that have been assigned to a network."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/availabilities",
+        "method": "GET",
+        "description": "List the availability information for devices in an organization. The data returned by this endpoint is updated every 5 minutes."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/availabilities/changeHistory",
+        "method": "GET",
+        "description": "List the availability history information for devices in an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/details/bulkUpdate",
+        "method": "POST",
+        "description": "Updating device details (currently only used for Catalyst devices)"
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/overview/byModel",
+        "method": "GET",
+        "description": "Lists the count for each device model"
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/powerModules/statuses/byDevice",
+        "method": "GET",
+        "description": "List the most recent status information for power modules in rackmount MX and MS devices that support them. The data returned by this endpoint is updated every 5 minutes."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/provisioning/statuses",
+        "method": "GET",
+        "description": "List the provisioning statuses information for devices in an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/statuses",
+        "method": "GET",
+        "description": "List the status of every Meraki device in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/statuses/overview",
+        "method": "GET",
+        "description": "Return an overview of current device statuses"
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/uplinks/addresses/byDevice",
+        "method": "GET",
+        "description": "List the current uplink addresses for devices in an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/devices/uplinksLossAndLatency",
+        "method": "GET",
+        "description": "Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago"
+    },
+    {
+        "path": "/organizations/{organizationId}/earlyAccess/features",
+        "method": "GET",
+        "description": "List the available early access features for organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/earlyAccess/features/optIns",
+        "method": "POST",
+        "description": "Create a new early access feature opt-in for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/earlyAccess/features/optIns/{optInId}",
+        "method": "DELETE",
+        "description": "Delete an early access feature opt-in"
+    },
+    {
+        "path": "/organizations/{organizationId}/firmware/upgrades",
+        "method": "GET",
+        "description": "Get firmware upgrade information for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/firmware/upgrades/byDevice",
+        "method": "GET",
+        "description": "Get firmware upgrade status for the filtered devices. This endpoint currently only supports Meraki switches."
+    },
+    {
+        "path": "/organizations/{organizationId}/floorPlans/autoLocate/devices",
+        "method": "GET",
+        "description": "List auto locate details for each device in your organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/floorPlans/autoLocate/statuses",
+        "method": "GET",
+        "description": "List the status of auto locate for each floorplan in your organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/insight/applications",
+        "method": "GET",
+        "description": "List all Insight tracked applications"
+    },
+    {
+        "path": "/organizations/{organizationId}/insight/monitoredMediaServers",
+        "method": "POST",
+        "description": "Add a media server to be monitored for this organization. Only valid for organizations with Meraki Insight."
+    },
+    {
+        "path": "/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}",
+        "method": "DELETE",
+        "description": "Delete a monitored media server from this organization. Only valid for organizations with Meraki Insight."
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/claim",
+        "method": "POST",
+        "description": "Claim a list of devices, licenses, and/or orders into an organization inventory. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. This operation can be used up to ten times within a single five minute window."
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/devices",
+        "method": "GET",
+        "description": "Return the device inventory for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/devices/swaps/bulk",
+        "method": "POST",
+        "description": "Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old."
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/devices/swaps/bulk/{id}",
+        "method": "GET",
+        "description": "List of device swaps for a given request ID ({id})."
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/devices/{serial}",
+        "method": "GET",
+        "description": "Return a single device from the inventory of an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/exportEvents",
+        "method": "POST",
+        "description": "Imports event logs related to the onboarding app into elastisearch"
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/imports",
+        "method": "GET",
+        "description": "Check the status of a committed Import operation"
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/networks",
+        "method": "GET",
+        "description": "Returns list of networks eligible for adding cloud monitored device"
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/prepare",
+        "method": "POST",
+        "description": "Initiates or updates an import session. An import ID will be generated and used when you are ready to commit the import."
+    },
+    {
+        "path": "/organizations/{organizationId}/inventory/release",
+        "method": "POST",
+        "description": "Release a list of claimed devices from an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses",
+        "method": "GET",
+        "description": "List the licenses for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/assignSeats",
+        "method": "POST",
+        "description": "Assign SM seats to a network. This will increase the managed SM device limit of the network"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/move",
+        "method": "POST",
+        "description": "Move licenses to another organization. This will also move any devices that the licenses are assigned to"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/moveSeats",
+        "method": "POST",
+        "description": "Move SM seats to another organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/overview",
+        "method": "GET",
+        "description": "Return an overview of the license state for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/renewSeats",
+        "method": "POST",
+        "description": "Renew SM seats of a license. This will extend the license expiration date of managed SM devices covered by this license"
+    },
+    {
+        "path": "/organizations/{organizationId}/licenses/{licenseId}",
+        "method": "PUT",
+        "description": "Update a license"
+    },
+    {
+        "path": "/organizations/{organizationId}/licensing/coterm/licenses",
+        "method": "GET",
+        "description": "List the licenses in a coterm organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/licensing/coterm/licenses/move",
+        "method": "POST",
+        "description": "Moves a license to a different organization (coterm only)"
+    },
+    {
+        "path": "/organizations/{organizationId}/loginSecurity",
+        "method": "PUT",
+        "description": "Update the login security settings for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/networks",
+        "method": "POST",
+        "description": "Create a network"
+    },
+    {
+        "path": "/organizations/{organizationId}/networks/combine",
+        "method": "POST",
+        "description": "Combine multiple networks into a single network"
+    },
+    {
+        "path": "/organizations/{organizationId}/openapiSpec",
+        "method": "GET",
+        "description": "Return the OpenAPI Specification of the organization's API documentation in JSON"
+    },
+    {
+        "path": "/organizations/{organizationId}/policyObjects",
+        "method": "POST",
+        "description": "Creates a new Policy Object."
+    },
+    {
+        "path": "/organizations/{organizationId}/policyObjects/groups",
+        "method": "POST",
+        "description": "Creates a new Policy Object Group."
+    },
+    {
+        "path": "/organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}",
+        "method": "DELETE",
+        "description": "Deletes a Policy Object Group."
+    },
+    {
+        "path": "/organizations/{organizationId}/policyObjects/{policyObjectId}",
+        "method": "DELETE",
+        "description": "Deletes a Policy Object."
+    },
+    {
+        "path": "/organizations/{organizationId}/saml",
+        "method": "PUT",
+        "description": "Updates the SAML SSO enabled settings for an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/saml/idps",
+        "method": "POST",
+        "description": "Create a SAML IdP for your organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/saml/idps/{idpId}",
+        "method": "DELETE",
+        "description": "Remove a SAML IdP in your organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/samlRoles",
+        "method": "POST",
+        "description": "Create a SAML role"
+    },
+    {
+        "path": "/organizations/{organizationId}/samlRoles/{samlRoleId}",
+        "method": "DELETE",
+        "description": "Remove a SAML role"
+    },
+    {
+        "path": "/organizations/{organizationId}/sensor/readings/history",
+        "method": "GET",
+        "description": "Return all reported readings from sensors in a given timespan, sorted by timestamp"
+    },
+    {
+        "path": "/organizations/{organizationId}/sensor/readings/latest",
+        "method": "GET",
+        "description": "Return the latest available reading for each metric from each sensor, sorted by sensor serial"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/admins/roles",
+        "method": "POST",
+        "description": "Create a Limited Access Role"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/admins/roles/{roleId}",
+        "method": "DELETE",
+        "description": "Delete a Limited Access Role"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/apnsCert",
+        "method": "GET",
+        "description": "Get the organization's APNS certificate"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/sentry/policies/assignments",
+        "method": "PUT",
+        "description": "Update an Organizations Sentry Policies using the provided list. Sentry Policies are ordered in descending order of priority (i.e. highest priority at the bottom, this is opposite the Dashboard UI). Policies not present in the request will be deleted."
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/sentry/policies/assignments/byNetwork",
+        "method": "GET",
+        "description": "List the Sentry Policies for an organization ordered in ascending order of priority"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/vppAccounts",
+        "method": "GET",
+        "description": "List the VPP accounts in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/sm/vppAccounts/{vppAccountId}",
+        "method": "GET",
+        "description": "Get a hash containing the unparsed token of the VPP account with the given ID"
+    },
+    {
+        "path": "/organizations/{organizationId}/snmp",
+        "method": "PUT",
+        "description": "Update the SNMP settings for an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/splash/assets/{id}",
+        "method": "DELETE",
+        "description": "Delete a Splash Theme Asset"
+    },
+    {
+        "path": "/organizations/{organizationId}/splash/themes",
+        "method": "POST",
+        "description": "Create a Splash Theme"
+    },
+    {
+        "path": "/organizations/{organizationId}/splash/themes/{id}",
+        "method": "DELETE",
+        "description": "Delete a Splash Theme"
+    },
+    {
+        "path": "/organizations/{organizationId}/splash/themes/{themeIdentifier}/assets",
+        "method": "POST",
+        "description": "Create a Splash Theme Asset"
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/switch/power/history",
+        "method": "GET",
+        "description": "Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours). The returned array is a newest-first list of intervals. The time between intervals depends on the requested timespan with 20 minute intervals used for timespans up to 1 day, 4 hour intervals used for timespans up to 2 weeks, and 1 day intervals for timespans larger than 2 weeks."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/appliances/byUtilization",
+        "method": "GET",
+        "description": "Return the top 10 appliances sorted by utilization over given time range."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/applications/byUsage",
+        "method": "GET",
+        "description": "Return the top applications sorted by data usage over given time range. Default unit is megabytes."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/applications/categories/byUsage",
+        "method": "GET",
+        "description": "Return the top application categories sorted by data usage over given time range. Default unit is megabytes."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/clients/byUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top 10 clients by data usage (in mb) over given time range."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/clients/manufacturers/byUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top clients by data usage (in mb) over given time range, grouped by manufacturer."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/devices/byUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top 10 devices sorted by data usage over given time range. Default unit is megabytes."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/devices/models/byUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top 10 device models sorted by data usage over given time range. Default unit is megabytes."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/networks/byStatus",
+        "method": "GET",
+        "description": "List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/ssids/byUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes."
+    },
+    {
+        "path": "/organizations/{organizationId}/summary/top/switches/byEnergyUsage",
+        "method": "GET",
+        "description": "Return metrics for organization's top 10 switches by energy usage over given time range. Default unit is joules."
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/devices/clone",
+        "method": "POST",
+        "description": "Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring"
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/ports/bySwitch",
+        "method": "GET",
+        "description": "List the switchports in an organization by switch"
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/ports/clients/overview/byDevice",
+        "method": "GET",
+        "description": "List the number of clients for all switchports with at least one online client in an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/ports/overview",
+        "method": "GET",
+        "description": "Returns the counts of all active ports for the requested timespan, grouped by speed. An active port is a port that at any point during the timeframe is observed to be connected to a responsive device and isn't configured to be disabled. For a port that is observed at multiple speeds during the timeframe, it will be counted at the highest speed observed. The number of inactive ports, and the total number of ports are also provided. Only ports on switches online during the timeframe will be represented and a port is only guaranteed to be present if its switch was online for at least 6 hours of the timeframe."
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/ports/statuses/bySwitch",
+        "method": "GET",
+        "description": "List the switchports in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/switch/ports/topology/discovery/byDevice",
+        "method": "GET",
+        "description": "List most recently seen LLDP/CDP discovery and topology information per switch port in an organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/uplinks/statuses",
+        "method": "GET",
+        "description": "List the uplink status of every Meraki MX, MG and Z series devices in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/webhooks/alertTypes",
+        "method": "GET",
+        "description": "Return a list of alert types to be used with managing webhook alerts"
+    },
+    {
+        "path": "/organizations/{organizationId}/webhooks/callbacks/statuses/{callbackId}",
+        "method": "GET",
+        "description": "Return the status of an API callback"
+    },
+    {
+        "path": "/organizations/{organizationId}/webhooks/logs",
+        "method": "GET",
+        "description": "Return the log of webhook POSTs sent"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/airMarshal/rules",
+        "method": "GET",
+        "description": "Returns the current Air Marshal rules for this organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/airMarshal/settings/byNetwork",
+        "method": "GET",
+        "description": "Returns the current Air Marshal settings for this network"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/clients/overview/byDevice",
+        "method": "GET",
+        "description": "List access point client count at the moment in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/channelUtilization/byDevice",
+        "method": "GET",
+        "description": "Get average channel utilization for all bands in a network, split by AP"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/channelUtilization/byNetwork",
+        "method": "GET",
+        "description": "Get average channel utilization across all bands for all networks in the organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/channelUtilization/history/byDevice/byInterval",
+        "method": "GET",
+        "description": "Get a time-series of average channel utilization for all bands, segmented by device."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/channelUtilization/history/byNetwork/byInterval",
+        "method": "GET",
+        "description": "Get a time-series of average channel utilization for all bands"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/ethernet/statuses",
+        "method": "GET",
+        "description": "List the most recent Ethernet link speed, duplex, aggregation and power mode and status information for wireless devices."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/packetLoss/byClient",
+        "method": "GET",
+        "description": "Get average packet loss for the given timespan for all clients in the organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/packetLoss/byDevice",
+        "method": "GET",
+        "description": "Get average packet loss for the given timespan for all devices in the organization. Does not include device's own traffic."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/packetLoss/byNetwork",
+        "method": "GET",
+        "description": "Get average packet loss for the given timespan for all networks in the organization."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/devices/wirelessControllers/byDevice",
+        "method": "GET",
+        "description": "List of Catalyst access points information"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/radio/autoRf/channels/recalculate",
+        "method": "POST",
+        "description": "Recalculates automatically assigned channels for every AP within specified the specified network(s). Note: This could cause a brief loss in connectivity for wireless clients."
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/rfProfiles/assignments/byDevice",
+        "method": "GET",
+        "description": "List the RF profiles of an organization by device"
+    },
+    {
+        "path": "/organizations/{organizationId}/wireless/ssids/statuses/byDevice",
+        "method": "GET",
+        "description": "List status information of all BSSIDs in your organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/availabilities/changeHistory",
+        "method": "GET",
+        "description": "List connectivity data of wireless LAN controllers in an organization. If it is HA setup, then only returns active WLC data start from switchover"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/clients/overview/history/byDevice/byInterval",
+        "method": "GET",
+        "description": "List wireless client counts of wireless LAN controllers over time in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/connections",
+        "method": "GET",
+        "description": "List all access points associated with wireless LAN controllers in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l2/byDevice",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 2 interfaces in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l2/statuses/changeHistory/byDevice",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 2 interfaces history status in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l2/usage/history/byInterval",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 2 interfaces history usage in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l3/byDevice",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 3 interfaces in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l3/statuses/changeHistory/byDevice",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 3 interfaces history status in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/l3/usage/history/byInterval",
+        "method": "GET",
+        "description": "List wireless LAN controller layer 3 interfaces history usage in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/packets/overview/byDevice",
+        "method": "GET",
+        "description": "Retrieve the packet counters for the interfaces of a Wireless LAN controller"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/interfaces/usage/history/byInterval",
+        "method": "GET",
+        "description": "Retrieve the traffic for the interfaces of a Wireless LAN controller"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/redundancy/failover/history",
+        "method": "GET",
+        "description": "List the failover events of wireless LAN controllers in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/redundancy/statuses",
+        "method": "GET",
+        "description": "List redundancy details of wireless LAN controllers in an organization. The failover count refers to the total failovers system happens from the moment of this device onboarding to Dashboard"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/devices/system/utilization/history/byInterval",
+        "method": "GET",
+        "description": "List cpu utilization data of wireless LAN controllers in an organization"
+    },
+    {
+        "path": "/organizations/{organizationId}/wirelessController/overview/byDevice",
+        "method": "GET",
+        "description": "List the overview information of wireless LAN controllers in an organization and it is updated every minute."
+    }
+]
